@@ -59,5 +59,6 @@ RUN apk add tzdata \
     && cp /usr/share/zoneinfo/$TIMEZONE /etc/localtime \
     && apk del tzdata
 
+COPY scripts /home/utils/scrips
 USER utils
 WORKDIR /home/utils
