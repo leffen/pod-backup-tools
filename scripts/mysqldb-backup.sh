@@ -5,7 +5,7 @@ echo "--------"
 echo "Existing backups:"
 ls -aslR ${HOME}/wp-backup
 echo "--------"
-BACKUPDIR="${HOME}/wp-backup/$(date +%Y-%m-%d-%N)"
+BACKUPDIR="${HOME}/wp-backup/$(date +%Y%m%d-%H%M)"
 echo "Backup to ${BACKUPDIR}"
 mkdir -p ${BACKUPDIR}
 /usr/bin/mysqldump -u ${DATABASE_USER} -p${DATABASE_PASSWORD} -h ${DATABASE_HOST} ${DATABASE_NAME} --single-transaction --quick --lock-tables=false > ${BACKUPDIR}/${DATABASE_NAME}.sql
