@@ -3,9 +3,9 @@ echo "Backupscript for suitecrm database and files"
 echo "Started: $(date)"
 echo "--------"
 echo "Existing backups:"
-ls -aslR /wp-backup
+ls -aslR ${HOME}/wp-backup
 echo "--------"
-BACKUPDIR="/wp-backup/$(date +%Y-%m-%d-%N)"
+BACKUPDIR="${HOME}/wp-backup/$(date +%Y-%m-%d-%N)"
 echo "Backup to ${BACKUPDIR}"
 mkdir -p ${BACKUPDIR}
 /usr/bin/mysqldump -u ${DATABASE_USER} -p${DATABASE_PASSWORD} -h ${DATABASE_HOST} ${DATABASE_NAME} --single-transaction --quick --lock-tables=false > ${BACKUPDIR}/${DATABASE_NAME}.sql
