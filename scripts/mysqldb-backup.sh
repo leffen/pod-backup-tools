@@ -3,7 +3,10 @@ echo "Backupscript for suitecrm database and files"
 echo "Started: $(date)"
 echo "--------"
 echo "Existing backups:"
-ls -aslR ${HOME}/wp-backup
+
+export BACKUP_ROOT_DIR=${HOME}/wp-backup
+
+ls -aslR ${BACKUP_ROOT_DIR}
 echo "--------"
 BACKUPDIR="${HOME}/wp-backup/$(date +%Y%m%d-%H%M)"
 echo "Backup to ${BACKUPDIR}"
@@ -14,8 +17,8 @@ tar cvfz ${DATABASE_NAME}.tar.gz ${DATABASE_NAME}.sql
 rm -rf ${DATABASE_NAME}.sql
 echo "--------"
 echo Deleting old backups
-find ${HOME}/backup -type f -mtime +30 -exec rm {} \;
+find ${BACKUP_ROOT_DIR} -type f -mtime +30 -exec rm {} \;
 echo "--------"
 echo "Backups after:"
-ls -aslR ${BACKUPDIR}
+ls -aslR ${BACKUP_ROOT_DIR}
 echo "Finished: $(date)"
