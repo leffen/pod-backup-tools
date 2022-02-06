@@ -33,6 +33,7 @@ RUN apk --update --clean-protected --no-cache add \
   tar \
   gzip \
   curl \
+  nano \
   ca-certificates \
   gettext \
   yq \
@@ -59,6 +60,6 @@ RUN apk add tzdata \
     && cp /usr/share/zoneinfo/$TIMEZONE /etc/localtime \
     && apk del tzdata
 
-COPY scripts /home/utils/scrips
 USER utils
+COPY scripts /home/utils/scripts
 WORKDIR /home/utils
