@@ -1,7 +1,7 @@
 include .env
 
 DOCKER_IMAGE = leffen/pod-backup-tools
-DOCKER_TAG = v0.1.8
+DOCKER_TAG = v0.1.9
 
 build:
 	docker build  -t $(DOCKER_IMAGE):$(DOCKER_TAG) .

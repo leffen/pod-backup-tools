@@ -14,7 +14,7 @@ tar cvfz ${DATABASE_NAME}.tar.gz ${DATABASE_NAME}.sql
 rm -rf ${DATABASE_NAME}.sql
 echo "--------"
 echo Deleting old backups
-find /backup -type f -mtime +30 -exec rm {} \;
+find ${HOME}/backup -type f -mtime +30 -exec rm {} \;
 echo "--------"
 echo "Backups after:"
 ls -aslR ${BACKUPDIR}
